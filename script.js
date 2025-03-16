@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Элементы для отображения времени
     const daysElement = document.getElementById('days');
-    const weeksElement = document.getElementById('weeks');
     const hoursElement = document.getElementById('hours');
     const minutesElement = document.getElementById('minutes');
     const secondsElement = document.getElementById('seconds');
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Если целевая дата уже прошла
         if (difference < 0) {
             daysElement.textContent = '0';
-            weeksElement.textContent = '0';
             hoursElement.textContent = '0';
             minutesElement.textContent = '0';
             secondsElement.textContent = '0';
@@ -55,14 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Расчет времени
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const weeks = Math.floor(days / 7);
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
         
         // Обновление элементов на странице
         daysElement.textContent = days;
-        weeksElement.textContent = weeks;
         hoursElement.textContent = hours;
         minutesElement.textContent = minutes;
         secondsElement.textContent = seconds;
